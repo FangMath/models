@@ -310,6 +310,7 @@ bazel build -c opt im2txt/run_inference
 
 # Ignore GPU devices (only necessary if your GPU is currently memory
 # constrained, for example, by running the training script).
+# But you might want to put 0 if you're using a GPU on Macbook Pro: export CUDA_VISIBLE_DEVICES="0"
 export CUDA_VISIBLE_DEVICES=""
 
 # Run inference to generate captions.
@@ -317,6 +318,8 @@ bazel-bin/im2txt/run_inference \
   --checkpoint_path=${CHECKPOINT_DIR} \
   --vocab_file=${VOCAB_FILE} \
   --input_files=${IMAGE_FILE}
+  
+# add --checkpoint_path=/Users/fanfang/im2txt/model/train/model.ckpt-2000000 if you're using a pretrained model from here https://github.com/tensorflow/models/issues/466
 ```
 
 Example output:
