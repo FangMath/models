@@ -339,3 +339,10 @@ Here is the image:
 <center>
 ![Surfer](g3doc/COCO_val2014_000000224477.jpg)
 </center>
+
+Tips to avoid errors:
+1. Use Tensorflow 0.12
+2. Use export CUDA_VISIBLE_DEVICES="0" for inference on MacBook Pro GPU
+3. Specify --checkpoint_path=/Users/fanfang/im2txt/model/train/model.ckpt-2000000 in inferencing if you're using a pretrained model from here tensorflow#466
+4. Use `tf.nn.rnn_cell.BasicLSTMCell` instead of `reverse_vocab = [line.split()[0] for line in reverse_vocab]` in TensorFlow 0.12 to avoid LSTMCell errors: https://github.com/tensorflow/tensorflow/issues/6432 
+5. Use `reverse_vocab = [eval(line.split()[0]) for line in reverse_vocab]` instead of `reverse_vocab = [line.split()[0] for line in reverse_vocab]` to avoid `split` errors
