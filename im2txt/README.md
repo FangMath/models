@@ -1,4 +1,4 @@
-# Show and Tell: A Neural Image Caption Generator
+# Show and Tell: A Neural Image Caption Generator (Use Tensorflow 0.12)
 
 A TensorFlow implementation of the image-to-text model described in the paper:
 
